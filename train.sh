@@ -1,1 +1,1 @@
-CUDA_VISIBLE_DEVICES=2 python train.py --exp_name rerun_modular_main0.1_aux0.01sgd_interval50
+CUDA_VISIBLE_DEVICES=2 python train.py --exp_name rerun_mean

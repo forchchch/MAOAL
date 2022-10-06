@@ -18,7 +18,7 @@
     "use_aux":1,
     "backbone":"resnet",
     "mode":"modular",
-    "interval":50,
+    "interval":10,
     "level": "module_wise",
     "pre": -1,
     "hpolr":1.0,

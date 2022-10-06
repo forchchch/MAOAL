@@ -47,8 +47,8 @@ class hypermodel(nn.Module):
         self.param_to_block = param_to_block
         self.modularized_lr = nn.Parameter(torch.ones(task_num, module_num))
         self.nonlinear = nn.ReLU()
-        self.scale_factor = 1.0
-        #self.scale_factor = 1.0/task_num
+        #self.scale_factor = 1.0
+        self.scale_factor = 1.0/task_num
     def forward(self,loss_vector,shared_params, whether_single=1, train_lr=1.0):
         if whether_single == 1:
             grads = torch.autograd.grad(loss_vector[0], shared_params, create_graph= True)
@@ -198,8 +198,8 @@ def modularized_lr_MTL_implicit(model,epochs,train_loader, auxloaders,opt,criter
     auxlen = len(auxloaders)
     modular = hypermodel(auxlen,module_num,param_to_block)
     #modular = hypermodel_all_task(1,module_num,param_to_block)
-    #m_optimizer = optim.Adam( modular.parameters(), lr = 1e-2, weight_decay = config['hyper']['decay'] )
-    m_optimizer = optim.SGD( modular.parameters(), lr = config['hyper']['lr'], momentum = 0.9, weight_decay = config['hyper']['decay'] )
+    m_optimizer = optim.Adam( modular.parameters(), lr = config['hyper']['lr'], weight_decay = config['hyper']['decay'] )
+    #m_optimizer = optim.SGD( modular.parameters(), lr = config['hyper']['lr'], momentum = 0.9, weight_decay = config['hyper']['decay'] )
     meta_optimizer = MetaOptimizer(meta_optimizer= m_optimizer, hpo_lr = config["hpolr"], truncate_iter = 3, max_grad_norm = 10)
     modular = modular.to(device)
     meta_loader_iter = iter(meta_loader)
@@ -237,8 +237,8 @@ def modularized_lr_MTL_implicit(model,epochs,train_loader, auxloaders,opt,criter
                     loss_list.append(config['main']['aux_weight']*aux_loss)
             common_grads = modular(loss_list, shared_parameter, whether_single =0) 
             loss_vec = torch.stack(loss_list)
-            #total_loss = loss_vec[0] + torch.mean(loss_vec[1:])
-            total_loss = torch.sum(loss_vec)
+            total_loss = loss_vec[0] + torch.mean(loss_vec[1:])
+            #total_loss = torch.sum(loss_vec)
             opt.zero_grad()
             total_loss.backward()
             for p, g in zip(shared_parameter, common_grads):
