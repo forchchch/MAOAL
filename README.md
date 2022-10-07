@@ -9,13 +9,7 @@ The provided code is for reproducing the MovieLens experiment in the paper. Crea
 ```
 mkdir data
 ```
-Then download the MovieLens-1M dataset and put it in the data folder, and unzip the downloaded data. Run the two dataset preprocess script:
-```
-python preprocess_rate.py
-python data_preprocess_feature1.py
-python data_preprocess_feature2.py
-```
-Then all the features and data split will be done and the splitted data will be put into the /data/ml-1m/prepreocess_json .
+Then download the preprocessed dataset MovieLens-1M from the [link](https://cloud.tsinghua.edu.cn/f/0aa8e2024c4647248279/?dl=1) and unzip it in the data folder.
 ## Run the experiment
 You can run the script to reproduce the MovieLens experiments. The argument "exp_name" is the name for the experiment. 
 ```
