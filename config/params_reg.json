@@ -20,7 +20,7 @@
     "use_aux":1,
     "backbone":"conv",
     "mode":"modular",
-    "interval":200,
+    "interval":20,
     "level": "module_wise",
     "pre":-1
 }
