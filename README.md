@@ -5,18 +5,23 @@ by Hong Chen, Xin Wang, Yue Liu, Chaoyu Guan and Wenwu Zhu.
 This work can be used when you want to optimize a model for the target task with the help of several auxiliary losses. It can automatically find how much each auxiliary loss should contribute to each part of the whole model, preventing the potential module-wise conflicts. Some of the auxilearn codes are modified from the [AuxLearn Repo](https://github.com/AvivNavon/AuxiLearn), we thank them for offering the code. 
 ![_](./MAOAL.png)
 ## Dataset
-The provided code is for reproducing the CIFAR-100/20 experiment in the paper. Create a folder named data in the repo using:
+The provided code is for reproducing the MovieLens experiment in the paper. Create a folder named data in the repo using:
 ```
 mkdir data
 ```
-Later the used dataset will be downloaded to this folder.
-
+Then download the MovieLens-1M dataset and put it in the data folder, and unzip the downloaded data. Run the two dataset preprocess script:
+```
+python preprocess_rate.py
+python data_preprocess_feature1.py
+python data_preprocess_feature2.py
+```
+Then all the features and data split will be done and the splitted data will be put into the /data/ml-1m/prepreocess_json .
 ## Run the experiment
-You can run the script to reproduce the CIFAR-100/20 experiments. The argument "exp_name" is the name for the experiment. 
+You can run the script to reproduce the MovieLens experiments. The argument "exp_name" is the name for the experiment. 
 ```
 sh train.sh
 ```
-Additionally, if you want to run some of the baselines or tune hyperparameters, change the params.json in the config folder. Note that the default config requires 15GB GPU memory, you can choose smaller batchsize to avoid 'out of memory' error.
+Additionally, if you want to run some of the baselines or tune hyperparameters, change the params.json in the config folder. 
 ### Explanation for key configs
     + ['main']['lr']: learning rate for the lower optimization
     + ['hyper']['lr]: learning rate for the upper optimization
@@ -25,8 +30,8 @@ Additionally, if you want to run some of the baselines or tune hyperparameters, 
     + mode: 'modular(MAOAL)', 'GCS', 'common'(SLL/Equal, change ['main']['aux_weight] to 0.0 for SLL, 1.0 for Equal), 'aux'(AuxL)
 
 ## Lower and Upper Optimization
-    + lower: The importance parameterized gradient is implemented in the hypermodel class.
-    + upper: In line 257-line 288, the upper optimization is conducted. gauxlearn package includes the algorithm for upper gradient calculation.
+    + lower: The importance parameterized gradient is implemented in the hypermodel class in the train_regularizer.py.
+    + upper: In line 274-line 315, the upper optimization is conducted. gauxlearn package includes the algorithm for upper gradient calculation.
 
 
 You may also find the papers in the citation useful.
