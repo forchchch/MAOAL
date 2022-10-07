@@ -5,7 +5,7 @@
         "decay": 5e-4
     },
     "hyper": {
-        "lr": 1e-3,
+        "lr": 1e-2,
         "decay": 0.0
     },
     "seed": 68,

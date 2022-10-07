@@ -1,1 +1,1 @@
-CUDA_VISIBLE_DEVICES=2 python train_regularizer.py --exp_name modular_seed5_sgd1e-3
+CUDA_VISIBLE_DEVICES=3 python train_regularizer.py --exp_name modular_seed68_sgd1e-2
