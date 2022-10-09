@@ -230,7 +230,7 @@ def modularized_lr_MTL_implicit(model,epochs,train_loader,train_loader2, val_loa
     print("the initial number of modules:",module_num)
     modular = hypermodel(1,module_num,param_to_block)
     #m_optimizer = optim.Adam( modular.parameters(), lr = config['hyper']['lr'],  weight_decay = config['hyper']['decay'] )
-    m_optimizer = optim.SGD( modular.parameters(), lr = config['hyper']['lr'], momentum = 0.0, weight_decay = config['hyper']['decay'] )
+    m_optimizer = optim.SGD( modular.parameters(), lr = config['hyper']['lr'], momentum = 0.9, weight_decay = config['hyper']['decay'] )
     meta_optimizer = MetaOptimizer(meta_optimizer= m_optimizer, hpo_lr = 1.0, truncate_iter = 3, max_grad_norm = 10)
     modular = modular.to(device)
     aux_loader_iter = iter(aux_loader)
