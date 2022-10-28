@@ -41,6 +41,16 @@ year = {2022},
 organization = {PMLR}
 }
 ```
+```
+@inproceedings{
+chen2022moduleaware,
+title={Module-Aware Optimization for Auxiliary Learning},
+author={Hong Chen and Xin Wang and Yue Liu and Yuwei Zhou and Chaoyu Guan and Wenwu Zhu},
+booktitle={Thirty-Sixth Conference on Neural Information Processing Systems},
+year={2022},
+url={https://openreview.net/forum?id=x-i37an3uym}
+}
+```
 
 
 
