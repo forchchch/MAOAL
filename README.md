@@ -1,5 +1,5 @@
 # Module-Aware Optimization for Auxiliary Learning
-by Hong Chen, Xin Wang, Yue Liu, Chaoyu Guan and Wenwu Zhu.
+by Hong Chen, Xin Wang, Yue Liu, Yuwei Zhou, Chaoyu Guan and Wenwu Zhu.
 
 ## Introduction
 This work can be used when you want to optimize a model for the target task with the help of several auxiliary losses. It can automatically find how much each auxiliary loss should contribute to each part of the whole model, preventing the potential module-wise conflicts. Some of the auxilearn codes are modified from the [AuxLearn Repo](https://github.com/AvivNavon/AuxiLearn), we thank them for offering the code. 
