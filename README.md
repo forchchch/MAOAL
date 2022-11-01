@@ -2,7 +2,7 @@
 by Hong Chen, Xin Wang, Yue Liu, Yuwei Zhou, Chaoyu Guan and Wenwu Zhu.
 
 ## Introduction
-This work can be used when you want to optimize a model for the target task with the help of several auxiliary losses. It can automatically find how much each auxiliary loss should contribute to each part of the whole model, preventing the potential module-wise conflicts. Some of the auxilearn codes are modified from the [AuxLearn Repo](https://github.com/AvivNavon/AuxiLearn), we thank them for offering the code. 
+This work can be used when you want to optimize a model for the target task with the help of several auxiliary losses. It can automatically find how much each auxiliary loss should contribute to each part of the whole model, preventing the potential module-wise conflicts.You can download the [paper](https://openreview.net/pdf?id=x-i37an3uym) here. Some of the auxilearn codes are modified from the [AuxLearn Repo](https://github.com/AvivNavon/AuxiLearn), we thank them for offering the code. 
 ![_](./MAOAL.png)
 ## Dataset
 The provided code is for reproducing the MovieLens experiment in the paper. Create a folder named data in the repo using:
@@ -31,7 +31,7 @@ Additionally, if you want to run some of the baselines or tune hyperparameters, 
 You may also find the papers in the citation useful.
 
 ## Citation
-```
+```bib
 @inproceedings{chen2022auxiliary,
 title = {Auxiliary Learning with Joint Task and Data Scheduling},
 author = {Chen, Hong and Wang Xin, and Guan, Chaoyu and Liu, Yue and Zhu Wenwu},
@@ -41,7 +41,7 @@ year = {2022},
 organization = {PMLR}
 }
 ```
-```
+```bib
 @inproceedings{
 chen2022moduleaware,
 title={Module-Aware Optimization for Auxiliary Learning},
